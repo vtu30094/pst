@@ -1,18 +1,17 @@
-import java.util.*;
 
 class Solution {
     public boolean halvesAreAlike(String s) {
-        int n = s.length();
+        int mid = s.length() / 2;
         int countA = 0;
         int countB = 0;
 
-        for (int i = 0; i < n / 2; i++) {
+        for (int i = 0; i < mid; i++) {
             if (isVowel(s.charAt(i))) {
                 countA++;
             }
         }
 
-        for (int i = n / 2; i < n; i++) {
+        for (int i = mid; i < s.length(); i++) {
             if (isVowel(s.charAt(i))) {
                 countB++;
             }
@@ -21,8 +20,8 @@ class Solution {
         return countA == countB;
     }
 
-    public boolean isVowel(char c) {
-        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-               c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+    private boolean isVowel(char c) {
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
+            || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
     }
 }
